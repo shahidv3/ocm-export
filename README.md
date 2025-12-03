@@ -23,7 +23,8 @@ This toolkit includes:
 
 ## 📦 Project Structure
 
-<img width="783" height="454" alt="image" src="https://github.com/user-attachments/assets/1209aaae-080f-45e9-b39b-2973ed33e1a8" />
+<img width="448" height="350" alt="image" src="https://github.com/user-attachments/assets/9cf1bf65-2e5d-438b-8535-cde876414670" />
+
 
 
 
