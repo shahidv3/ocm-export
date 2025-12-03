@@ -23,3 +23,26 @@ This toolkit includes:
 
 ## 📦 Project Structure
 
+├── config.yaml
+├── ocm_export_pro.py
+├── gdrive_rbac_sync.py
+├── README.md
+└── ocm_export/
+├── files/
+│ └── (folder tree replicated from OCM)
+└── meta/
+├── assets.jsonl
+├── folders.json
+├── rbac.json
+└── state.json
+
+
+---
+
+## 🛠 1. Install Dependencies
+
+```bash
+pip install requests google-api-python-client google-auth-httplib2 \
+    google-auth-oauthlib pyyaml
+
+
