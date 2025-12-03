@@ -23,18 +23,8 @@ This toolkit includes:
 
 ## 📦 Project Structure
 
-├── config.yaml
-├── ocm_export_pro.py
-├── gdrive_rbac_sync.py
-├── README.md
-└── ocm_export/
-├── files/
-│ └── (folder tree replicated from OCM)
-└── meta/
-├── assets.jsonl
-├── folders.json
-├── rbac.json
-└── state.json
+<img width="783" height="454" alt="image" src="https://github.com/user-attachments/assets/1209aaae-080f-45e9-b39b-2973ed33e1a8" />
+
 
 
 ---
