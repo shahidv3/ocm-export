@@ -34,20 +34,23 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 
 import requests
 
-# ---------------- CONFIG ---------------- #
+import yaml
 
-OCM_BASE_URL = "https://<your-ocm-host>/content/"
-OCM_TOKEN = "<YOUR_BEARER_TOKEN>"
-REPOSITORY_ID = "<OCM_REPOSITORY_ID>"
+with open("config.yaml") as f:
+    CONFIG = yaml.safe_load(f)
 
-EXPORT_ROOT = "./ocm_export"
-FILES_DIR = os.path.join(EXPORT_ROOT, "files")
-META_DIR = os.path.join(EXPORT_ROOT, "meta")
+OCM_BASE_URL = CONFIG["ocm"]["base_url"]
+OCM_TOKEN = CONFIG["ocm"]["token"]
+REPOSITORY_ID = CONFIG["ocm"]["repository_id"]
+PAGE_LIMIT = CONFIG["ocm"]["page_limit"]
+MAX_RETRIES = CONFIG["ocm"]["max_retries"]
+CHUNK_SIZE = CONFIG["ocm"]["chunk_size_mb"] * 1024 * 1024
+MAX_WORKERS = CONFIG["ocm"]["max_workers"]
 
-PAGE_LIMIT = 100           # keep consistent for resume
-MAX_WORKERS = 8            # parallel downloads
-MAX_RETRIES = 5
-CHUNK_SIZE = 1024 * 1024   # 1 MB
+EXPORT_ROOT = CONFIG["output"]["root_dir"]
+FILES_DIR = CONFIG["output"]["files_dir"]
+META_DIR = CONFIG["output"]["meta_dir"]
+
 
 STATE_FILE = os.path.join(META_DIR, "state.json")
 ASSETS_JSONL = os.path.join(META_DIR, "assets.jsonl")
