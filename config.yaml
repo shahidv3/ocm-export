@@ -1,0 +1,46 @@
+# ===============================
+#    OCM → Google Workspace Migration Config
+# ===============================
+
+ocm:
+  base_url: "https://<your-ocm-host>/content/"
+  token: "<YOUR_OCM_BEARER_TOKEN>"
+  repository_id: "<OCM_REPOSITORY_ID>"
+  page_limit: 100
+  max_retries: 5
+  chunk_size_mb: 1
+  max_workers: 8         # parallel downloads
+
+output:
+  root_dir: "./ocm_export"
+  files_dir: "./ocm_export/files"
+  meta_dir: "./ocm_export/meta"
+
+folders:
+  folder_id_key: "id"
+  parent_id_candidates:
+    - "parentID"
+    - "parentId"
+    - "parentFolderId"
+
+rclone:
+  shared_drive_id: "<GOOGLE_SHARED_DRIVE_ID>"
+  remote_name: "gdrive"
+  transfers: 8
+  checkers: 16
+  tpslimit: 8
+  retries: 10
+  low_level_retries: 20
+
+rbac:
+  use_groups: true
+  ocm_to_gdrive_role:
+    manager: "organizer"
+    contributor: "writer"
+    reader: "reader"
+    viewer: "reader"
+  role_to_group:
+    manager: "ocm-compliance-managers@yourdomain.com"
+    contributor: "ocm-compliance-editors@yourdomain.com"
+    reader: "ocm-compliance-viewers@yourdomain.com"
+    viewer: "ocm-compliance-viewers@yourdomain.com"
